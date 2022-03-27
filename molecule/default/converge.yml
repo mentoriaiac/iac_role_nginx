@@ -2,6 +2,14 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include nome_da_role"
+    - name: "Include iac_role_nginx"
       include_role:
-        name: "nome_da_role"
+        name: "iac_role_nginx"
+      vars:
+        nginx_extra_conf:
+          - filename: test_file_1
+            content: |
+              # Arquivo de teste 1
+          - filename: test_file_2
+            content: |
+              # Arquivo de teste 2

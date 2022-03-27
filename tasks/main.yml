@@ -1,2 +1,29 @@
 ---
-# tasks file for nome_da_role
+- name: Instalar o nginx
+  apt:
+    name: "nginx={{ nginx_version }}"
+    update_cache: yes
+    state: present
+
+- name: Configurando o nginx
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Renderizar os arquivos de configuração extras
+  template:
+    src: include.conf.j2
+    dest: "/etc/nginx/conf.d/{{ item.filename }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  loop: "{{ nginx_extra_conf }}"
+
+- name: Habilitando nginx
+  service:
+    enabled: yes
+    name: nginx
+    state: started

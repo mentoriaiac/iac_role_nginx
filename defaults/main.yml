@@ -1,2 +1,3 @@
 ---
-# defaults file for nome_da_role
+nginx_version: 1.18.0-0ubuntu1.2
+nginx_extra_conf: []

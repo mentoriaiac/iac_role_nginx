@@ -7,4 +7,8 @@ e este projeto segue o [Versionamento Semântico](https://semver.org/lang/pt-BR/
 
 ## [Não publicado]
 
-[Não publicado]: https://github.com/mentoriaiac/iac-role-ATUALIZAR/compare/0.1.0...HEAD
+### Adicionado
+
+- Instalação inicial do Nginx [[GH-2](https://github.com/mentoriaiac/iac_role_nginx/pull/2)]
+
+[Não publicado]: https://github.com/mentoriaiac/iac_role_nginx/compare/0.1.0...HEAD
