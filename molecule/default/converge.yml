@@ -9,11 +9,7 @@
         nginx_extra_conf:
           - filename: test_file_1
             content: |
-              upstream backend {
-                 server backend1.example.com weight=5;
-                 server backend2.example.com;
-                 server 192.0.0.1 backup;
-               }
+              # Arquivo de teste 1
           - filename: test_file_2
             content: |
-              # Arquivo de teste
+              # Arquivo de teste 2
