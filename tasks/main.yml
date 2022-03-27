@@ -1,5 +1,4 @@
 ---
-# tasks file for nome_da_role
 - name: Instalar o nginx
   apt:
     name: "nginx={{ nginx_version }}"
@@ -16,7 +15,7 @@
 
 - name: Renderizar os arquivos de configuração extras
   template:
-    src: include.conf.j2 
+    src: include.conf.j2
     dest: "/etc/nginx/conf.d/{{ item.filename }}.conf"
     owner: root
     group: root
@@ -28,8 +27,3 @@
     enabled: yes
     name: nginx
     state: started
-
-
-    
-
-    
