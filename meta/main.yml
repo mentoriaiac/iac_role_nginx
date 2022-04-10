@@ -2,7 +2,7 @@ galaxy_info:
   author: Mentoria IaC
   description: Install Nginx
   company: Mentoria IaC
-  role_name: template_role_ansible
+  role_name: iac_role_nginx
   namespace: mentoriaiac
   license: MIT
   min_ansible_version: 5.6
