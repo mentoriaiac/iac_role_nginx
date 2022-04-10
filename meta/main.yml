@@ -2,17 +2,16 @@ galaxy_info:
   author: Mentoria IaC
   description: Install Nginx
   company: Mentoria IaC
+  role_name: iac_role_nginx
+  namespace: mentoriaiac
   license: MIT
-
-  min_ansible_version: 2.1
-
-  # If this a Container Enabled role, provide the minimum Ansible Container version.
-  # min_ansible_container_version:
+  min_ansible_version: 5.6
 
   platforms:
     - name: Ubuntu
       versions:
         - 20.04
+        - 18.04
 
   galaxy_tags: []
     # List tags for your role here, one per line. A tag is a keyword that describes

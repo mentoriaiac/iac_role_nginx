@@ -1,12 +1,12 @@
 ---
 - name: Instalar o nginx
-  apt:
+  ansible.builtin.apt:
     name: "nginx={{ nginx_version }}"
     update_cache: yes
     state: present
 
 - name: Configurando o nginx
-  copy:
+  ansible.builtin.copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
     owner: root
@@ -14,7 +14,7 @@
     mode: 0644
 
 - name: Renderizar os arquivos de configuração extras
-  template:
+  ansible.builtin.template:
     src: include.conf.j2
     dest: "/etc/nginx/conf.d/{{ item.filename }}.conf"
     owner: root
@@ -23,7 +23,7 @@
   loop: "{{ nginx_extra_conf }}"
 
 - name: Habilitando nginx
-  service:
+  ansible.builtin.service:
     enabled: yes
     name: nginx
     state: started
