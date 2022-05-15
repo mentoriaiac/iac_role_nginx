@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python_version: [3.9]
-        molecule_distro: [ubuntu2004]
+        python-version: [3.9]
+        molecule-distro: [ubuntu2004]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -36,7 +36,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip setuptools
+          python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
       - name: Force GitHub Actions' docker daemon to use vfs.
         run: |
@@ -49,4 +49,4 @@ jobs:
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.molecule_distro }}
+          MOLECULE_DISTRO: ${{ matrix.molecule-distro }}
