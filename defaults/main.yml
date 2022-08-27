@@ -1,3 +1,4 @@
 ---
 nginx_version: 1.18.0-0ubuntu1.3
-nginx_extra_conf: []
+nginx_extra_files: []
+nginx_extra_dirs: []

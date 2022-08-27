@@ -6,10 +6,11 @@
       include_role:
         name: "iac_role_nginx"
       vars:
-        nginx_extra_conf:
-          - filename: test_file_1
-            content: |
-              # Arquivo de teste 1
-          - filename: test_file_2
-            content: |
-              # Arquivo de teste 2
+        nginx_extra_files:
+          - destination: /etc/nginx.d/teste1
+            filename: ./test-files/teste1.conf
+          - destination: /etc/nginx.d/teste2
+            filename: ./test-files/teste2.conf
+
+        nginx_extra_dirs:
+          - /var/log/teste
