@@ -11,6 +11,5 @@
             filename: ./test-files/teste1.conf
           - destination: /etc/nginx.d/teste2
             filename: ./test-files/teste2.conf
-
         nginx_extra_dirs:
           - /var/log/teste
