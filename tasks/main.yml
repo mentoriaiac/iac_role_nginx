@@ -13,14 +13,27 @@
     group: root
     mode: 0644
 
-- name: Renderizar os arquivos de configuração extras
-  ansible.builtin.template:
-    src: include.conf.j2
-    dest: "/etc/nginx/conf.d/{{ item.filename }}.conf"
-    owner: root
-    group: root
-    mode: 0644
-  loop: "{{ nginx_extra_conf }}"
+- name: Criar diretórios extras vazios
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ nginx_extra_dirs }}"
+
+- name: Criar diretórios para os arquivos extras
+  ansible.builtin.file:
+    path: "{{ item.destination | dirname }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ nginx_extra_files }}"
+
+- name: Renderizar os arquivos extras
+  ansible.builtin.blockinfile:
+    block: "{{ lookup('ansible.builtin.file', item.filename) }}"
+    path: "{{ item.destination }}"
+    mode: '0644'
+    create: true
+  loop: "{{ nginx_extra_files }}"
 
 - name: Habilitando nginx
   ansible.builtin.service:

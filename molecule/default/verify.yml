@@ -1,10 +1,24 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: Verificando se o nginx está instalado
+      ansible.builtin.command: nginx -h
+      register: nginx_teste_help
+      failed_when:
+        - nginx_teste_help.rc != 0
+
+    - name: Verificando a existência do arquivo nginx.conf
+      ansible.builtin.stat:
+        path: /etc/nginx/nginx.conf
+      register: nginx_test_nginx_conf_stat
+    - name: Ler o conteudo do arquivo nginx.conf
+      ansible.builtin.slurp:
+        src: /etc/nginx/nginx.conf
+      register: nginx_teste_nginx_conf_content
+    - name: Validando a existência do arquivo nginx.conf
+      ansible.builtin.assert:
+        that:
+          - nginx_test_nginx_conf_stat.stat.exists
+          - "'include /etc/nginx/conf.d/*.conf;' in (nginx_teste_nginx_conf_content.content | b64decode)"
