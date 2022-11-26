@@ -7,9 +7,12 @@ e este projeto segue o [Versionamento Semântico](https://semver.org/lang/pt-BR/
 
 ## [Não publicado]
 
+## [0.1.0] - 2022-11-25
+
 ### Adicionado
 
 - Instalação inicial do Nginx [[GH-2](https://github.com/mentoriaiac/iac_role_nginx/pull/2)]
 - Adicionada opção para criar diretórios extras [[GH-7](https://github.com/mentoriaiac/iac_role_nginx/pull/7)]
 
 [Não publicado]: https://github.com/mentoriaiac/iac_role_nginx/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/mentoriaiac/iac_role_nginx/releases/tag/0.1.0
